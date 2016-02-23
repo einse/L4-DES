@@ -14,7 +14,7 @@
       <h1>DES с электронным кодоблокнотом (режим ECB)</h1>
       
       <h2>I. Поле для ввода ключа (64 бита, шестнадцать 16-ричных разрядов)</h2>
-      <textarea ng-model="main_key" ng-init="main_key='7FFF00000000FFFF'" placeholder=""></textarea>
+      <textarea ng-model="main_key" ng-init="main_key='FEFE FEFE FEFE FEFE'" placeholder=""></textarea>
       <p>16-ричное представление ключа состоит из валидных символов (1 - да; 0 - нет): {{ is_key_ok = validateHexString(main_key) }}</p>
       <table class="table hidden">
         <tr>
@@ -63,6 +63,7 @@
       <textarea ng-model="msg" ng-init="msg=''" placeholder="Введите текст, который надо зашифровать. Можно вводить любые символы Юникода (UTF-16BE), но шифроваться будут только те символы, которые есть в кодировке Windows-1251" autofocus></textarea>
       <button ng-click="eCopy(newmsg)">Скопировать из "Результата дешифровки"</button>
       <button ng-click="eClear()">Очистить</button>
+      <button ng-click="eCopy(cypher_ascii_string)">Скопировать из "Результата шифрования"</button>
       <h2 class="hidden">Входная последовательность</h2>
       <table class="table hidden">
         <tr>
