@@ -683,6 +683,8 @@ app.controller('myCtrl', function($scope) {
   $scope.validateHexString = function(s) {
     for (var i = 0; i < s.length; i++) {
       var c = s.charCodeAt(i);
+      if (c == 32)
+        continue;
       if (c < 48 || c > 102 || (c > 57 && c < 65) || (c > 70 && c < 97))
         return 0;
     }
@@ -715,6 +717,7 @@ app.controller('myCtrl', function($scope) {
         case 'd': r.push(1); r.push(1); r.push(0); r.push(1); break;
         case 'e': r.push(1); r.push(1); r.push(1); r.push(0); break;
         case 'f': r.push(1); r.push(1); r.push(1); r.push(1); break;
+        case ' ': break;
       }
     }
     return r;
