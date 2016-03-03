@@ -548,16 +548,32 @@ app.controller('myCtrl', function($scope) {
     $scope.msg = newmsg;
   }
   
+  $scope.eCopy2 = function(newmsg) {
+    $scope.msg_ascii_numbers_field = newmsg;
+  }
+  
   $scope.eClear = function() {
     $scope.msg = "";
+  }
+  
+  $scope.eClear2 = function() {
+    $scope.msg_ascii_numbers_field = "";
   }
   
   $scope.dCopy = function(s) {
     $scope.cypher = s;
   }
   
+  $scope.dCopy2 = function(s) {
+    $scope.cypher_d = s;
+  }
+  
   $scope.dClear = function() {
     $scope.cypher = "";
+  }
+  
+  $scope.dClear2 = function() {
+    $scope.cypher_d = "";
   }
   
   $scope.UnicodeString2UnicodeNumbers = function(unicode_text) {
@@ -580,7 +596,7 @@ app.controller('myCtrl', function($scope) {
     return ascii_numbers;
   }
   
-  $scope.asciiNumbers2blocks = function(unicode_numbers) {
+  $scope.AsciiNumbers2blocks = function(unicode_numbers) {
     var bit_array = [];
     for (var i = 0; i < unicode_numbers.length; i++) {
       var subarray = [];
@@ -1150,6 +1166,22 @@ app.controller('myCtrl', function($scope) {
       msg_blocks_64_bit.push(one_block);
     }
     return msg_blocks_64_bit;
+  }
+  
+  $scope.eAction = function() {
+    $scope.msg_ascii_numbers_field_2 = $scope.msg_ascii_numbers_field;
+  }
+  
+  $scope.commaString2AsciiNumbers = function(comma_string) {
+    if (typeof comma_string == 'string') {
+      var arr_chars = comma_string.split(',');
+      var arr_nums = [];
+      for (var i = 0; i < arr_chars.length; i++) {
+        arr_nums.push(parseInt(arr_chars[i]));
+      }
+      return arr_nums;
+    }
+    return comma_string;
   }
   
 });
